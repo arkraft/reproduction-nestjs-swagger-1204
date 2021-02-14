@@ -1,0 +1,76 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Cats example",
+        "description": "The cats API description",
+        "version": "1.0",
+        "contact": {}
+    },
+    "tags": [
+        {
+            "name": "cats",
+            "description": ""
+        }
+    ],
+    "servers": [],
+    "components": {
+        "schemas": {
+            "CatDetailEnum": {
+                "type": "string",
+                "enum": [
+                    "Persian",
+                    "Tabby",
+                    "Siamese"
+                ]
+            }
+        }
+    },
+    "paths": {
+        "/hello": {
+            "get": {
+                "operationId": "AppController_getHello",
+                "parameters": [
+                    {
+                        "name": "breed",
+                        "required": true,
+                        "in": "query",
+                        "schema": {
+                            "$ref": "#/components/schemas/CatDetailEnum"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/world": {
+            "get": {
+                "operationId": "AppController_getWorld",
+                "parameters": [
+                    {
+                        "name": "breed",
+                        "required": true,
+                        "in": "query",
+                        "enumName": "CatDetailEnum",
+                        "schema": {
+                            "enum": [
+                                "Persian",
+                                "Tabby",
+                                "Siamese"
+                            ],
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    }
+}
